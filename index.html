@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style/css/style.css" />
+    <title>Mine Sweeper</title>
+  </head>
+  <body onload="onInit('beginner')">
+    <header class="header">
+        <div class="title">
+            <img  src="assets/img/logo.svg" alt="SVG Image">
+            <h1 class="header-title">Minesweeper Onilne</h1>
+        </div>
+    </header>
+    </div>
+    <hr>
+    <div class="main-container">
+        <div class="level-bar">
+            <span class="level level-beginner" onclick="onSetBeginnerLevel()">Beginner</span>
+            <span class="level level-intermediate" onclick="onSetIntermediateLevel()">Intermediate</span>
+            <span class="level level-expert" onclick="onSetExpertLevel()">Expert</span>
+        </div>
+        <div class="modal">
+            <h1 class="game-msg"></h1>
+            <hr>
+            <h4 >Time: <span class="total-time"></span> sec</h4>
+        </div>
+
+        <div class="game-container">
+            <div class="board-container">
+                <div class="table-top-container">
+                    <div class="table-top">
+                        <div class="mines-count">
+                            <img class="mines-count-digit" src="assets/img/timer-numbers/0.jpg" alt="">
+                            <img class="mines-count-digit mines-digit10" src="assets/img/timer-numbers/1.jpg" alt="">
+                            <img class="mines-count-digit mines-digit1" src="assets/img/timer-numbers/0.jpg" alt="">
+                        </div>
+                        <div class="emoji">
+                            <img class="emoji-img" onclick="onClickSmily(this)" src="assets/img/emojis/emoji-1.jpg" alt="">
+                        </div>
+                        <div class="timer">
+                            <img class="timer-digit digit100" src="assets/img/timer-numbers/0.jpg" alt="">
+                            <img class="timer-digit digit10" src="assets/img/timer-numbers/0.jpg" alt="">
+                            <img class="timer-digit digit1" src="assets/img/timer-numbers/0.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <tbody class="board"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

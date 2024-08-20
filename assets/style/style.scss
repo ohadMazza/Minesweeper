@@ -1,0 +1,243 @@
+//////// colors /////
+
+$clr1: #f9f9f9;
+$clr2: #f0f3f4;
+$clr3: #c6c6c6d4;
+$clr4: #cccccc;
+$clr5: #606060aa;
+$clr6: #337ab7;
+$clr7: #868585;
+$clr8: #606060;
+$clr9: #e2e3e4;
+$clr10: #1a568b;
+$clr11: #242634;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 87.5%;
+}
+
+body {
+  height: 95vh;
+  width: 100%;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 70px auto 1fr;
+  grid-template-columns: 1fr minmax(200px, 850px) 1fr;
+}
+
+.header {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background-color: $clr2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+
+  .title {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+
+    img {
+      height: 45px;
+      margin-right: 10px;
+    }
+
+    .header-title {
+      font-size: 30px;
+      font-family: "Lato", sans-serif;
+      font-family: "Merriweather", serif;
+      text-shadow: 1px 1px 0 #fff;
+      color: $clr8;
+    }
+  }
+}
+
+hr {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  height: 1px;
+  background-color: $clr9;
+  border: none;
+}
+
+.main-container {
+  grid-column: 2;
+  grid-row: 3;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .level-bar {
+    margin-block: 30px;
+    display: flex;
+    justify-content: center;
+
+    .level {
+      margin-inline: 10px;
+      color: $clr6;
+      font-size: 1.1rem;
+      font-family: "Open Sans", sans-serif;
+
+      &:hover {
+        cursor: pointer;
+        color: $clr10;
+        text-decoration: underline;
+      }
+    }
+    .active {
+      font-weight: bold;
+      color: $clr11;
+
+      &:hover {
+        color: $clr11;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    width: 200px;
+    height: 100px;
+    border: 3px solid $clr5;
+    background-color: $clr2;
+    box-shadow: 1px 0px 10px 3px $clr7;
+    display: none;
+    top: 200px;
+    left: calc(50vw - 100px);
+
+    h1 {
+      color: $clr11;
+      text-align: center;
+    }
+
+    hr {
+      height: 1px;
+      background-color: $clr4;
+      border: none;
+    }
+
+    h4 {
+      color: $clr11;
+      margin: 5px;
+    }
+  }
+
+  .game-container{
+
+    .board-container {
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      height: fit-content;
+      border: 5px outset;
+      border-color: $clr2 $clr3 $clr3 $clr2;
+
+      .table-top-container {
+        border: 8px solid $clr4;
+        width: 100%;
+        height: fit-content;
+        .table-top {
+          justify-content: space-between;
+          background-color: $clr4;
+          width: 100%;
+          display: flex;
+          border: 5px solid;
+          border-color: $clr5 $clr1 $clr1 $clr5;
+          padding: 4px;
+
+          .mines-count,
+          .timer {
+            width: fit-content;
+            height: 39px;
+            background-color: black;
+            border: 2px solid;
+            border-color: $clr7 $clr1 $clr1 $clr7;
+            padding: 2px;
+
+            .mines-count-digit,
+            .timer-digit {
+              height: 32px;
+              width: 16px;
+            }
+          }
+          .emoji {
+            width: 40px;
+            height: 40px;
+            .emoji-img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+
+      .table-container {
+        border: 8px solid $clr4;
+        border-top: 0px;
+        width: 100%;
+        height: fit-content;
+
+        table {
+          margin: 0 auto;
+          width: fit-content;
+          background: $clr4;
+          border-spacing: 0;
+
+          tbody {
+            display: block;
+            border: 5px solid $clr2;
+            border-top-color: $clr7;
+            border-left-color: $clr7;
+          }
+
+          .cell {
+            width: 24px;
+            height: 24px;
+            border: 3px outset;
+            border-color: $clr1 $clr3 $clr3 $clr1;
+          }
+          .empty-cell {
+            border: 1px solid $clr7;
+            border-collapse: collapse;
+            overflow: hidden;
+          }
+
+          .img-cell {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+
+          .megahint-cell {
+            position: relative;
+          }
+
+          .megahint-cell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            background-color: $clr6;
+            opacity: 0.5;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
